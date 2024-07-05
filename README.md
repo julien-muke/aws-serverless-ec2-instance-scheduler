@@ -135,6 +135,9 @@ def lambda_handler(event, context):
 ```
 
 
+![9](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/db4354b0-ebda-4b61-b711-8b2204caed6b)
+
+
 
 
 
