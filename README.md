@@ -23,7 +23,7 @@ A company has a development ec2 web server that is only used during office hours
 
 The procedure for deploying this architecture on AWS consists of the following steps:
 
-Step 1: Creating the Instance 
+Step 1: Launch an instance
 
 Step 2: Creating the AMI Policy
 
@@ -32,5 +32,21 @@ Step 3: Creating the Lambda functions
 Step 4: Creating the Schedules Using Cloud Watch
 
 
-## ➡️ Step 1 - Creating the Instance 
+## ➡️ Step 1 - Launch an instance
+
+To launch an instance:
+
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
+2. From the EC2 console dashboard, in the Launch instance pane, choose Launch instance.
+
+![1](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/357298ad-320f-470b-abad-f37f2ee3a178)
+
+
+3. Under Name and tags, for Name, enter a descriptive name for your instance `instance-scheduler`
+4. Under Application and OS Images (Amazon Machine Image), select an AMI that is marked Free Tier eligible.
+5. Under Instance type, for Instance type, choose `t2.micro`, which is eligible for the Free Tier.
+6. Under Key pair (login), for Key pair name, for this demo let's choose Proceed without a key pair.
+7. Keep everything else as default, and choose Launch instance.
+
+![2](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/163ec200-8d15-423b-bcc4-9a0a010dc4a6)
 
