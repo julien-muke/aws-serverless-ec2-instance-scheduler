@@ -83,6 +83,56 @@ This is because we are going to create two Lambda functions, one for starting an
 
 ## ➡️ Step 3 - Creating the Lambda functions
 
+To create a Hello world Lambda function with the console:
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+2. Choose Create function.
+
+
+![Screenshot 2024-07-05 at 16 42 02](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/209556d2-4095-4af1-94c4-10a67773699d)
+
+
+3. Select Author from scratch.
+4. In the Basic information pane, for Function name enter `start-ec2-demo`
+5. For Runtime, choose either Python 3.
+6. Leave architecture set to x86_64 and choose Create function.
+
+![8](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/df697866-4575-48eb-8156-1fb7d059b8a8)
+
+
+You now use the console's built-in code editor to replace the Hello world code that Lambda created with your own function code.
+
+Copy the following python code and paste it into the console's built-in code editor.
+
+Note: Replace the `region_name` to your corresponding region, and replace the `instance_id` to corresponding instance ID which you can find in the EC2 instance console where we've created one.
+
+```python
+import boto3
+
+def lambda_handler(event, context):
+    # Initialize the EC2 client
+    ec2_client = boto3.client('ec2', region_name='us-east-1') # Replace your Region name
+
+    # Specify the instance ID of the EC2 instance you want to start
+    instance_id = 'i-051262059d6f6350a' # Replace your Own Instance ID
+
+    # Start the EC2 instance
+    try:
+        response = ec2_client.start_instances(InstanceIds=[instance_id], DryRun=False)
+        print(f"Starting EC2 instance {instance_id}...")
+        print(f"Response: {response}")
+        return {
+            'statusCode': 200,
+            'body': f"EC2 instance {instance_id} is being started."
+        }
+    except Exception as e:
+        print(f"Error starting EC2 instance: {e}")
+        return {
+            'statusCode': 500,
+            'body': f"Error starting EC2 instance: {str(e)}"
+        }
+
+```
 
 
 
