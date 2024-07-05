@@ -50,3 +50,24 @@ To launch an instance:
 
 ![2](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/163ec200-8d15-423b-bcc4-9a0a010dc4a6)
 
+
+## ➡️ Step 2 - Creating the AMI Policy
+
+To use the visual editor to create a policy
+
+1. open the IAM console at https://console.aws.amazon.com/iam/
+2. In the navigation pane on the left, choose Policies. 
+3. Choose Create policy.
+
+![3](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/84f8c91e-01fa-43c2-8623-cdbbf63c1fe9)
+
+
+4. In the Policy editor section, find the Select a service section, and then choose an AWS service, we are going to choose `EC2` as services.
+5. In Actions allowed, choose the actions to add to the policy, we are going to search and choose `DescribeInstances` and `StartInstances` then choose Next.
+
+![4](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/616a785d-dc2a-414a-a8d6-bc9854398737)
+
+
+6. 
+
+
