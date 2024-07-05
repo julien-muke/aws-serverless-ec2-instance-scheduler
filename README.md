@@ -214,3 +214,23 @@ As you can see below the `stop-ec2-demo` lambda function is working and it's sto
 ![Screenshot 2024-07-05 at 12 27 50](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/d320cc0c-e3e2-4b0c-9b4d-f37c70a59909)
 
 
+## ➡️ Step 3 - Creating the Schedules Using Cloud Watch
+
+To Creating a CloudWatch:
+
+1. Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/
+2. In the navigation pane on the left, choose Rules.
+3. Under Rules, choose Create rule
+
+![Screenshot 2024-07-05 at 12 32 17](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/844adfed-9e86-4f8d-8fc3-880df14d4a15)
+
+4. Configure rule details, enter rule name `start-ec2-rule` , for Event bus choose Default, for Rule type choose `Schedule`, and then choose Continue in EventBridge Scheduler.
+
+![Screenshot 2024-07-05 at 12 37 42](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/9ccc65f2-5ccc-4717-b795-c09feeab84eb)
+
+
+5. Under Select target, choose Template targets as Target API, then select AWS Lambda Invoke
+
+![Screenshot 2024-07-05 at 12 46 49](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/594f5f7f-4912-4c22-9c8c-6a4b0ab19d5e)
+
+
