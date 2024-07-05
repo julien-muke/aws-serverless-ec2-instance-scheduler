@@ -68,6 +68,11 @@ To use the visual editor to create a policy
 ![4](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/616a785d-dc2a-414a-a8d6-bc9854398737)
 
 
-6. 
+6. Enter a Policy name `start-ec2-instance`
+7. Under description add a short explanation for this policy.
+
+![5](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/d78b1a3e-443a-4b50-846c-193decfab67b)
+
+8. 
 
 
