@@ -73,6 +73,18 @@ To use the visual editor to create a policy
 
 ![5](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/d78b1a3e-443a-4b50-846c-193decfab67b)
 
-8. 
+Note: We have created a policy for starting instances. We also need to create a policy for stopping the instances. 
+This is because we are going to create two Lambda functions, one for starting and one for stopping the instances. Each function will have its own role, and we will attach these two policies to their respective roles.
+
+8. We are going to repeat the same step 2 for Creating Stopping Policy, except:
+<br>* In Actions allowed, choose the actions to add to the policy, we are going to search and choose `DescribeInstances` and `StopInstances` then choose Next.
+<br>* Enter a Policy name `stop-ec2-instance`
+
+
+## ➡️ Step 3 - Creating the Lambda functions
+
+
+
+
 
 
