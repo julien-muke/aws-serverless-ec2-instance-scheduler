@@ -94,7 +94,7 @@ To create a Hello world Lambda function with the console:
 
 3. Select Author from scratch.
 4. In the Basic information pane, for Function name enter `start-ec2-demo`
-5. For Runtime, choose either Python 3.
+5. For Runtime, choose either Python 3.12
 6. Leave architecture set to x86_64 and choose Create function.
 
 ![8](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/df697866-4575-48eb-8156-1fb7d059b8a8)
@@ -102,7 +102,7 @@ To create a Hello world Lambda function with the console:
 
 You now use the console's built-in code editor to replace the Hello world code that Lambda created with your own function code.
 
-Copy the following python code and paste it into the console's built-in code editor.
+Copy the following python code and paste in `lambda_function.py` file in the console's built-in code editor.
 
 Note: Replace the `region_name` to your corresponding region, and replace the `instance_id` to corresponding instance ID which you can find in the EC2 instance console where we've created one.
 
@@ -138,6 +138,41 @@ def lambda_handler(event, context):
 ![9](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/db4354b0-ebda-4b61-b711-8b2204caed6b)
 
 
+7. Select Deploy to update your function's code.
+8. Select Test and Configure test event.
+9. Enter Event name `start-instance-demo` then Save.
+
+![10](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/0f3978fa-d03f-4d5b-835e-f0c8709c011c)
+
+Note: Before we test the Lambda function, let's attach `start-ec2-Instance` policy to the Lambda function.
+
+10. Choose Configuration Tab, then select Permissions, click `start-ec2-demo-role`
+
+![12](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/13e4468f-87d6-49a4-8c2a-9db039d5aeb0)
+
+11. Under Permissions policies, choose Attach policies.
+
+![13](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/9527ec86-aa87-4d1f-93fc-6b6e528c3905)
 
 
+12. Select `start-ec2-instance` policy then choose Add permissions
+
+
+![14](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/dd071e75-3c83-4baf-b2ea-1a94832ca1f8)
+
+
+13. You now test your function and use the Lambda console and CloudWatch Logs to view records of your function’s invocation.
+
+![Screenshot 2024-07-05 at 12 21 08](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/4d8f40ce-d69a-4dd1-8ea4-c61469486c18)
+
+
+14. We created a lambda function for Starting Instance.
+
+
+![Screenshot 2024-07-05 at 12 29 59](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/d29297f4-808b-48ad-9b4a-fede54dfc3be)
+
+
+Note: Now you going to create a Lambda function for stopping the instance. You will reapet step 3, except:
+<br>* For Function name enter `stop-ec2-demo` 
+<br>* 
 
