@@ -135,7 +135,7 @@ def lambda_handler(event, context):
 ```
 
 
-![9](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/db4354b0-ebda-4b61-b711-8b2204caed6b)
+![9](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/75e1ccf2-23aa-43ed-9b21-e972a9fb5a31)
 
 
 7. Select Deploy to update your function's code.
@@ -161,12 +161,12 @@ Note: Before we test the Lambda function, let's attach `start-ec2-Instance` poli
 ![14](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/dd071e75-3c83-4baf-b2ea-1a94832ca1f8)
 
 
-13. You now test your function and use the Lambda console and CloudWatch Logs to view records of your function’s invocation.
+13. You now test `start-ec2-demo` function and use the Lambda console and CloudWatch Logs to view records of your function’s invocation.
 
 ![Screenshot 2024-07-05 at 12 21 08](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/4d8f40ce-d69a-4dd1-8ea4-c61469486c18)
 
 
-14. We created a lambda function for Starting Instance.
+14. As you can see below the `start-ec2-demo` lambda function is working and the instance is running.
 
 
 ![Screenshot 2024-07-05 at 12 29 59](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/d29297f4-808b-48ad-9b4a-fede54dfc3be)
@@ -174,5 +174,43 @@ Note: Before we test the Lambda function, let's attach `start-ec2-Instance` poli
 
 Note: Now you going to create a Lambda function for stopping the instance. You will reapet step 3, except:
 <br>* For Function name enter `stop-ec2-demo` 
-<br>* 
+<br>* The only changes we have to make are to replace the default code with the stop EC2 instance code below, and attach the `stop-ec2-instance` policy we created for stopping instances to the role of this Lambda function.
+
+```python
+import boto3
+
+def lambda_handler(event, context):
+    # Initialize the EC2 client
+    ec2_client = boto3.client('ec2', region_name='us-east-1') # Replace your Region name
+
+    # Specify the instance ID of the EC2 instance you want to stop
+    instance_id = 'i-051262059d6f6350a' # Replace your Own Instance ID
+
+    # Stop the EC2 instance
+    try:
+        response = ec2_client.stop_instances(InstanceIds=[instance_id], DryRun=False)
+        print(f"Stopping EC2 instance {instance_id}...")
+        print(f"Response: {response}")
+        return {
+            'statusCode': 200,
+            'body': f"EC2 instance {instance_id} is being stopped."
+        }
+    except Exception as e:
+        print(f"Error stopping EC2 instance: {e}")
+        return {
+            'statusCode': 500,
+            'body': f"Error stopping EC2 instance: {str(e)}"
+        }
+
+```
+
+You now test `stop-ec2-demo`s function and use the Lambda console and CloudWatch Logs to view records of your function’s invocation.
+
+![Screenshot 2024-07-05 at 12 27 04](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/92ceffba-47ac-4c5f-8c5d-a513e12aa089)
+
+
+As you can see below the `stop-ec2-demo` lambda function is working and it's stopping the instance.
+
+![Screenshot 2024-07-05 at 12 27 50](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/d320cc0c-e3e2-4b0c-9b4d-f37c70a59909)
+
 
