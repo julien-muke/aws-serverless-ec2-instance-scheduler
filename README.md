@@ -16,7 +16,7 @@ When compared to a setup where you leave all your instances continuously running
 
 ## Scenario
 
-A company has a development ec2 web server that is only used during office hours which is 9:00 a.m. to 5:00 p.m. Monday to Friday the company is looking for ways to reduce their Cloud cost and they've realized that by turning off the ac2 instance when it's not in use they'll be able to save about 60% of cost they want you to figure out an automated way to stop the instances at the end of the workday at 5:00 p.m. and start it at the beginning of the workday at 9: a.m.
+A company has a development EC2 web server that is only used during office hours which is 8:00 A.M. to 5:00 P.M. Monday to Friday. The company is looking for ways to reduce their Cloud cost and they've realized that by turning OFF the EC2 instance when it's not in use, they'll be able to save about 60% of cost. They want you to figure out an automated way to stop the instances at the end of the workday at 5:00 P.M. and start it at the beginning of the workday at 9:00 A.M.
 
 
 ## <a name="steps">☑️ Steps</a>
