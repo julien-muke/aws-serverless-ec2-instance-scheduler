@@ -229,8 +229,45 @@ To Creating a CloudWatch:
 ![Screenshot 2024-07-05 at 12 37 42](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/9ccc65f2-5ccc-4717-b795-c09feeab84eb)
 
 
-5. Under Select target, choose Template targets as Target API, then select AWS Lambda Invoke
+5. Enter Schedule name `start-ecz-rule` and keep Schedule group as default.
+
+![Amazon-EventBridge-Scheduler-us-east-1](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/136a9eaa-7649-47f6-933d-a87364b49d4d)
+
+
+6. Under Schedule pattern, choose Recurring schedule as Occurrence.
+7. Under Schedule type, choose Cron-based schedule.
+8. Define the cron expression for the schedule, a date and time are displayed in your current time zone in UTC
+format, e.g. "Wed, Nov 9, 2022 09:00 (UTC - 08:00)" for Pacific time.
+9. Set off Flexible time window, keep Timeframe as default then click Next.
+
+![Amazon-EventBridge-Scheduler-us-east-1 copy](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/5a51af3a-417d-44b9-a26a-c6d4c43e24ac)
+
+
+10. Under Select target, choose Template targets as Target API, then select AWS Lambda Invoke
 
 ![Screenshot 2024-07-05 at 12 46 49](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/594f5f7f-4912-4c22-9c8c-6a4b0ab19d5e)
 
 
+11. Under Invoke AWS Lambda, choose `start-ec2-demo` Lambda function, then click Next.
+
+![Amazon-EventBridge-Scheduler-us-east-1(1)](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/24da5ab6-58d4-4a6b-8863-df540b4bd62d)
+
+
+12. Under Settings, for an action after schedule completion, choose NONE.
+13. Scroll down and keep everything else as default and choose Next.
+
+![Amazon-EventBridge-Scheduler-us-east-1(2)](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/c997571f-e376-4481-93cd-2af796ed294d)
+
+
+13. Review everything and click create schedule.
+
+We have created a schedule for starting the instance every day at 8:00 AM.
+
+Note: Next, we need to create a schedule for stopping instances. To create the schedule for stopping instances, follow the step 3, except:
+<br>* Enter rule name as `stop-ec2-rule` 
+<br>* We need to change the schedule time to 17:00 because it will stop the Lambda function at 17:00 IST (5:00 PM).
+<br>* Under Invoke AWS Lambda, choose `stop-ec2-demo` Lambda function.
+
+As you can see below, we have successfully created two schedules: one to start the instance every day at 8:00 AM and the other to stop the instance every day at 5:00 PM.
+
+![Screenshot 2024-07-05 at 13 52 08](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/09c82cdb-a8e2-47bd-823e-9e1d5f5310d4)
