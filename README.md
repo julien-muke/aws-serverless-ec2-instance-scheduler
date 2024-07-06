@@ -11,7 +11,7 @@ When compared to a setup where you leave all your instances continuously running
 
 ## <a name="design">📐 Architecture Diagram</a>
 
-![Blank diagram-16](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/4ed4e5fa-2ca2-4c95-8ad0-31a5821d9cd9)
+![Blank diagram-16](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/6343434c-46d9-4dee-b644-1dbc3d8da2bc)
 
 
 ## Scenario
