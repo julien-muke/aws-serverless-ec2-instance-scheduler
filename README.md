@@ -4,7 +4,7 @@
 ## <a name="introduction">🤖 Introduction</a>
 
 
-Instance Scheduler on AWS automates the starting and stopping of various AWS services, including Amazon Elastic Compute Cloud (Amazon EC2), Amazon EC2 Auto Scaling Groups, and Amazon Relational Database Service (Amazon RDS) instances. Automating this process helps reduce operational costs by stopping and starting resources as needed. This AWS Solution uses resource tags and AWS Lambda to automatically stop and start instances based on a schedule you define, and it can be deployed across multiple AWS Regions.
+In this demo, we are going to implement Instance Scheduler on AWS to automates the starting and stopping of Amazon EC2 instances. Automating this process helps reduce operational costs by stopping and starting resources as needed. This AWS Solution uses two Lambda functions responsible for starting and stopping instances, these Lambda functions will be triggered by two CloudWatch Events in the morning and evening.
 
 When compared to a setup where you leave all your instances continuously running at full utilization (even when those resources aren't being used), this solution can lead to significant cost savings by aligning your workloads with the AWS Well-Architected Cost Optimization best practices.
 
@@ -16,7 +16,7 @@ When compared to a setup where you leave all your instances continuously running
 
 ## 📈 Scenario
 
-A company has a development EC2 web server that is only used during office hours which is 8:00 A.M. to 5:00 P.M. Monday to Friday. The company is looking for ways to reduce their Cloud cost and they've realized that by turning OFF the EC2 instance when it's not in use, they'll be able to save about 60% of cost. They want you to figure out an automated way to stop the instances at the end of the workday at 5:00 P.M. and start it at the beginning of the workday at 9:00 A.M.
+A company has a development EC2 web server that is only used during office hours which is 8:00 A.M. to 5:00 P.M. Monday to Friday. The company is looking for ways to reduce their Cloud cost and they've realized that by turning OFF the EC2 instance when it's not in use, they'll be able to save about 60% of cost. They want you to figure out an automated way to stop the instances at the end of the workday at 5:00 P.M. and start it at the beginning of the workday at 08:00 A.M.
 
 
 ## <a name="steps">☑️ Steps</a>
@@ -238,7 +238,9 @@ To Creating a CloudWatch:
 7. Under Schedule type, choose Cron-based schedule.
 8. Define the cron expression for the schedule, a date and time are displayed in your current time zone in UTC
 format, e.g. "Wed, Nov 9, 2022 09:00 (UTC - 08:00)" for Pacific time.
+In my case, i will trigger the schedule at 08:00 A.M - JANUARY to DECEMBER - SUNDAY to SATURDAY-2024.
 9. Set off Flexible time window, keep Timeframe as default then click Next.
+
 
 ![Amazon-EventBridge-Scheduler-us-east-1 copy](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/5a51af3a-417d-44b9-a26a-c6d4c43e24ac)
 
