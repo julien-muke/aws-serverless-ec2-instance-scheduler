@@ -271,3 +271,8 @@ Note: Next, we need to create a schedule for stopping instances. To create the s
 As you can see below, we have successfully created two schedules: one to start the instance every day at 8:00 AM and the other to stop the instance every day at 5:00 PM.
 
 ![Screenshot 2024-07-05 at 13 52 08](https://github.com/julien-muke/aws-serverless-ec2-instance-scheduler/assets/110755734/09c82cdb-a8e2-47bd-823e-9e1d5f5310d4)
+
+
+## 💰 Cost
+
+All services used are eligible for the AWS Free Tier. However, charges will incur at some point so it's recommended that you shut down resources after completing this tutorial.
